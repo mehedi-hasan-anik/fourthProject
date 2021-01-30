@@ -7,11 +7,7 @@
 }
 body{
     font-family: 'Roboto', sans-serif;
-    background:url("images/bg.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: scroll;
-    background-size: cover;
+   
 }
 
 nav{
@@ -119,4 +115,35 @@ nav ul li a:hover, a.active{
 .amount{
     display: flex;
     justify-content: space-between;
+}
+#extra-area{
+   display: none;
+   color: grey;
+}
+#totalArea{
+    background:url("images/bg.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+}
+.invoice{
+    position: relative;
+    margin-top: 20px;
+}
+.invoice::after{
+    content: '';
+    position:absolute;
+    background: grey;
+    height: 2px;
+    width: 100%;
+   top: 50px;
+   left: 0px;
+}
+.totalCostArea{
+    margin-top: 50px;
+    text-transform:capitalize;
+}
+.totalCostArea h3{
+    margin-top: 10px;
 }

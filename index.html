@@ -110,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-style" id="confirm">Book Now</button>
+                <button onclick="clickFunction()" class="btn-style" id="confirm">Book Now</button>
             </div>
 
             <div class="booking-content">
@@ -122,11 +122,25 @@
             </div>
             </section>
 
+
             <!--Thank You-->
+    </div>
+
+    <div id="extra-area">
+        <div class="extra container">
+            <h1 style="text-align: center;" class="invoice">INVOICE</h1>
+            <div class="totalCostArea">
+                <h3>first class tickt quentity : <span id="firstQuentity"></span> </h3>
+                <h3>economy tickt quentity : <span id="economyQuentity"></span> </h3>
+                <h3>total cost : <span id="allCost"></span> </h3>
+            </div>
+        </div>
     </div>
 
 
     <script>
+
+
         function firstIncreseAndDecrese(isIncrese) {
             var count = document.getElementById("firstClassDisplay").value;
             var countNumberConvert = parseFloat(count);
@@ -173,18 +187,25 @@
             document.getElementById("subTotal").innerText = '$' + allSubTotal;
         }
 
-        document.getElementById("confirm").addEventListener("click", function () {
-          document.getElementById("totalArea").style.display = "none";
-          document.body.style.display = "none";
-        })
+        function forInvoice(){
+            var display1 = document.getElementById("firstClassDisplay").value;
+            var display1ConvertNumber = parseFloat(display1);
+            var display2 = document.getElementById("economyDisplay").value;
+            var display2ConvertNumber = parseFloat(display2);
+            var subTotalCost = display1ConvertNumber * 150 + display2ConvertNumber * 100;
+            var tax = subTotalCost * 0.1;
+            var totalCost = tax + subTotalCost;
+            document.getElementById("allCost").textContent = '$' + totalCost;
+            document.getElementById("firstQuentity").textContent =  display1ConvertNumber;
+            document.getElementById("economyQuentity").textContent =  display2ConvertNumber;
+        }
 
+        function clickFunction() {
+            document.getElementById("extra-area").style.display = "block";
+            document.getElementById("totalArea").style.display = "none";
+            forInvoice();
+        }
 
-        //    document.getElementById("firstClassQuentityIncrese").addEventListener("click",function(){
-        //     increseAndDecrese(true);
-        //    })
-        //    document.getElementById("firstClassQuentityDecrese").addEventListener("click",function(){
-        //     increseAndDecrese(false);
-        //    })
     </script>
 
     <script src="js/all.min.js"></script>
